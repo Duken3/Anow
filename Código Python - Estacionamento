@@ -1,0 +1,170 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyNTSQ+xwXc17LyMKx2xJSYQ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Duken3/Anow/blob/main/C%C3%B3digo%20Python%20-%20Estacionamento\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num_veiculos = int(input(\"Quantos veículos entraram? \")) # Solicita ao usuário o número total de veículos\n",
+        "\n",
+        "veiculos_registrados = [] # Inicializa uma lista para armazenar os detalhes de cada veículo\n",
+        "total_arrecadado = 0 # Inicializa o contador do total arrecadado\n",
+        "\n",
+        "# Loop para coletar informações e calcular o valor para cada veículo\n",
+        "for i in range(num_veiculos):\n",
+        "  print(f\"\\n--- Detalhes do Veículo {i+1} ---\")\n",
+        "  tipo_veiculo = input(f\"Digite o tipo do veículo {i+1}: \") # Solicita o tipo do veículo\n",
+        "  tempo_estacionado = int(input(f\"Digite o tempo estacionado em minutos para o veículo {i+1}: \")) # Solicita o tempo estacionado\n",
+        "\n",
+        "  valor_por_veiculo = 0 # Inicializa o valor a pagar para o veículo atual\n",
+        "  # Condicionais para determinar o valor com base no tempo estacionado\n",
+        "  if tempo_estacionado <= 15:\n",
+        "    valor_por_veiculo = 0 # Gratuito até 15 minutos\n",
+        "  elif tempo_estacionado <= 60:\n",
+        "    valor_por_veiculo = 1.50 # R$1.50 entre 16 e 60 minutos\n",
+        "  elif tempo_estacionado <= 120:\n",
+        "    valor_por_veiculo = 2.50 # R$2.50 entre 61 e 120 minutos\n",
+        "  else:\n",
+        "    valor_por_veiculo = 3.50 # R$3.50 acima de 120 minutos\n",
+        "\n",
+        "  # Adiciona os detalhes do veículo à lista de veículos registrados\n",
+        "  veiculos_registrados.append({\n",
+        "      \"tipo\": tipo_veiculo,\n",
+        "      \"tempo\": tempo_estacionado,\n",
+        "      \"valor_a_pagar\": valor_por_veiculo\n",
+        "  })\n",
+        "  total_arrecadado += valor_por_veiculo # Acumula o valor arrecadado\n",
+        "\n",
+        "print(\"\\n--- Resumo --- \")\n",
+        "# Loop para exibir o resumo de cada veículo\n",
+        "for i, veiculo in enumerate(veiculos_registrados):\n",
+        "  print(f\"Veículo {i+1}: Tipo: {veiculo['tipo']}, Tempo: {veiculo['tempo']} minutos, Valor a Pagar: R${veiculo['valor_a_pagar']:.2f}\")\n",
+        "\n",
+        "print(f\"\\nTotal arrecadado: R${total_arrecadado:.2f}\") # Exibe o total geral arrecadado"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Vo9PiWITNTdO",
+        "outputId": "bcd7e012-1896-4a61-c328-13bd2b14f339"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Quantos veículos entraram? 3\n",
+            "\n",
+            "--- Detalhes do Veículo 1 ---\n",
+            "Digite o tipo do veículo 1: Moto\n",
+            "Digite o tempo estacionado em minutos para o veículo 1: 160\n",
+            "\n",
+            "--- Detalhes do Veículo 2 ---\n",
+            "Digite o tipo do veículo 2: Caminhonete\n",
+            "Digite o tempo estacionado em minutos para o veículo 2: 50\n",
+            "\n",
+            "--- Detalhes do Veículo 3 ---\n",
+            "Digite o tipo do veículo 3: Carro\n",
+            "Digite o tempo estacionado em minutos para o veículo 3: 25\n",
+            "\n",
+            "--- Resumo --- \n",
+            "Veículo 1: Tipo: Moto, Tempo: 160 minutos, Valor a Pagar: R$3.50\n",
+            "Veículo 2: Tipo: Caminhonete, Tempo: 50 minutos, Valor a Pagar: R$1.50\n",
+            "Veículo 3: Tipo: Carro, Tempo: 25 minutos, Valor a Pagar: R$1.50\n",
+            "\n",
+            "Total arrecadado: R$6.50\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "idade = int( input(\"Informe sua idade\") )\n",
+        "\n",
+        "if idade >= 18:\n",
+        "  print(\"PERMITIDO!\")\n",
+        "else:\n",
+        "  print(\"BLOQUEADO!\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TbQJjhGu49BD",
+        "outputId": "1407da7f-4ced-407a-9ca8-fc7e38893001"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Informe sua idade17\n",
+            "BLOEQUEADO!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "pessoa = {\n",
+        "    \"nome\": \"Jennifer\",\n",
+        "    \"idade\": 23,\n",
+        "    \"peso\": 59.99\n",
+        "}\n",
+        "\n",
+        "print( pessoa['nome'])\n",
+        "print( pessoa['idade'])\n",
+        "print( pessoa['peso'])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uony_gNf-DaM",
+        "outputId": "327de5b6-fbaa-486b-c8c5-cfa3c4b50280"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Jennifer\n",
+            "23\n",
+            "59.99\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
